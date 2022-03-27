@@ -1,0 +1,30 @@
+{%  extends "base.html" %}
+
+{% block content %}
+
+<table>
+    <tr><td style="padding-left: 25px;"><h2>Welcome to ICreditApp. Credit Approval Results</h2></td><td width="50%">&nbsp;</td></tr>
+    <tr>
+        <td style="padding-left: 100px;">
+            {% for key, value in result.items() %}
+            {{key}} - {{value}}<br>
+            {%endfor%}
+
+            <b>{{response1}} </b><br>
+            {{response2}}<br><br><br>
+            {{requestsent}}
+
+        </td>
+        <td style="vertical-align: top;"><br>
+            {{response3}}
+             {% if response3=='good' %}
+                <img src="{{ url_for('static', filename='images/success.jpg') }}" width="800" height="800" />
+            {% else %}
+                <img src="{{ url_for('static', filename='images/declined.jpg') }}" width="800" height="800" />
+            {% endif %}
+        </td>
+    </tr>
+
+</table>
+
+{% endblock %}
